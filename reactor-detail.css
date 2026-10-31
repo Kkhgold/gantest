@@ -21,3 +21,13 @@
 @media(max-width:1000px){.reactor{width:270px}}
 @media(max-width:720px){.reactor{width:250px}.reactor-inner{box-shadow:0 0 0 2px #06131f,0 0 0 3px #718e9e,0 0 0 5px #091d2b,0 0 0 6px #62ccdf88,inset 0 0 0 3px #1b3c51,inset 0 0 0 4px #acdce9,inset 0 0 0 6px #082538}}
 @media(prefers-reduced-motion:reduce){.reactor-core{animation:none}}
+
+/* Slow counter-rotation keeps the central core and mechanical supports steady. */
+@keyframes reactor-ring-turn{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:no-preference){
+  .reactor-coils{animation:coil-light 5s ease-in-out infinite,reactor-ring-turn 40s linear infinite}
+  .reactor-calibration{animation:reactor-ring-turn 28s linear infinite reverse}
+}
+@media(prefers-reduced-motion:reduce){
+  .reactor-coils,.reactor-calibration{animation:none;transform:none}
+}
