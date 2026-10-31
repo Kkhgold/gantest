@@ -8,7 +8,9 @@
 
 ## GitHub Pages에 게시
 
-저장소의 **Settings → Pages → Build and deployment**에서 **Deploy from a branch**를 선택한 뒤 **main / (root)**로 저장하세요.
+저장소의 **Settings → Pages → Build and deployment → Source**를 **GitHub Actions**로 설정하세요.
+
+`.github/workflows/pages.yml`이 main 브랜치 변경 시 사이트를 배포합니다. 최초 Pages 생성은 저장소 설정에서 활성화해야 할 수 있습니다. 초기 설정 후 Actions의 `Deploy portfolio to GitHub Pages`에서 실패한 작업을 다시 실행하세요.
 
 게시 주소: https://kkhgold.github.io/gantest/
 
