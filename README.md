@@ -1,31 +1,37 @@
 # Kkhgold · Engineering Portfolio
 
-포토공정 노광장비 엔지니어로서 쌓은 16년의 설비 메인터넌스 경험과 현재 시스템 업무, 학업과 배움의 여정을 소개하는 반응형 포트폴리오입니다.
+React + Vite 기반 포트폴리오입니다. 포토공정 노광장비 엔지니어로서 쌓은 16년의 설비 메인터넌스 경험과 현재 시스템 업무, 학업과 배움의 여정을 소개합니다.
 
-## 미리 보기
+공개 주소: https://kkhgold.github.io/gantest/
 
-`index.html`을 브라우저에서 열면 됩니다. 빌드나 패키지 설치가 필요 없습니다.
+## 로컬 실행
 
-## GitHub Pages에 게시
+```sh
+npm ci
+npm run dev
+```
 
-저장소의 **Settings → Pages → Build and deployment → Source**를 **GitHub Actions**로 설정하세요.
+터미널에 표시되는 `/gantest/` 주소를 엽니다.
 
-`.github/workflows/pages.yml`이 main 브랜치 변경 시 사이트를 배포합니다. 최초 Pages 생성은 저장소 설정에서 활성화해야 할 수 있습니다. 초기 설정 후 Actions의 `Deploy portfolio to GitHub Pages`에서 실패한 작업을 다시 실행하세요.
+## 빌드 및 배포
 
-게시 주소: https://kkhgold.github.io/gantest/
+```sh
+npm run build
+npm run preview
+```
 
-GitHub의 Pages 제공 범위와 저장소 설정에 따라 게시 가능 여부가 달라질 수 있습니다. 위 주소는 Pages 활성화 후 사용할 수 있습니다.
+배포 파일은 `dist/`에 생성됩니다. `vite.config.js`의 `base: '/gantest/'`는 GitHub Pages 저장소 경로에 맞춘 설정입니다. GitHub Pages Source는 GitHub Actions를 사용합니다. main 브랜치 변경 시 `.github/workflows/pages.yml`이 의존성을 설치하고 빌드 후 자동 배포합니다.
 
-## 수정
+## 구성
 
-- 소개·경력·학업·링크: `index.html`
-- 기본 레이아웃·모바일 스타일: `styles.css`
-- 아크 원자로 테마·청록색 발광 코어·금속 링·애니메이션: `arc-theme.css`
+- `src/App.jsx`: 페이지 구성
+- `src/components/`: 헤더, 아크 원자로, 소개, 경력, 배움, GitHub 연결 등의 컴포넌트
+- `src/components/Exposure.jsx`: 노광 원리 SVG, 4단계 설명, 자동 재생 및 일시정지
+- `src/components/exposure.css`: 노광 도식의 반응형 스타일과 빛 이동 효과
+- `styles.css`, `arc-theme.css`, `reactor-detail.css`: 기존 디자인과 원자로 링 회전
 
-이름은 GitHub 계정명인 Kkhgold를 사용했습니다. 회사명, 구체적인 프로젝트, 성과 수치, 이메일은 제공되지 않아 포함하지 않았습니다. 학업 전공이나 졸업 연도도 확인된 내용만 반영했습니다.
+노광 원리는 투과형 레티클과 투영 렌즈를 사용하는 개념도입니다. 노광으로 감광막에 잠상이 형성되고, 별도 현상 공정에서 패턴이 드러나는 양성 감광막 예시를 보여줍니다. 실제 장비 구조와 축척을 재현한 그림이 아닙니다.
 
-Google Fonts를 불러오며, 인터넷 연결이 없을 때에는 시스템 글꼴로 표시됩니다. 아크 원자로 그래픽은 CSS로 제작했습니다. 코어는 은은하게 발광하며, 동작 줄이기를 설정한 기기에서는 애니메이션이 비활성화됩니다.
+동작 줄이기 설정에서는 원자로 회전, 빛 흐름과 자동 단계 전환을 비활성화합니다. 각 단계 버튼으로 설명을 직접 볼 수 있습니다.
 
-비주얼 테마는 아크 원자로, 반도체 칩, 데이터센터 서버 랙, AI 신경망을 조합했습니다. 데이터센터와 AI는 디자인 모티프이며 해당 분야의 업무 경력이나 실적을 의미하지 않습니다.
-
-원자로 세부 표현: `reactor-detail.css` — 가공 금속 링, 방사형 코일과 권선, 12개 고정 볼트와 지지대, 눈금 링, 다층 발광 코어와 유리 반사광.
+실명 대신 Kkhgold를 사용하며, 회사명·장비 모델·프로젝트·자격증·성과 수치는 임의로 추가하지 않았습니다. 데이터센터와 AI는 디자인 모티프이며 해당 분야의 경력을 의미하지 않습니다. Google Fonts를 사용할 수 없으면 시스템 글꼴로 표시됩니다.

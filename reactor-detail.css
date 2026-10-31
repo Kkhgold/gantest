@@ -31,3 +31,4 @@
 @media(prefers-reduced-motion:reduce){
   .reactor-coils,.reactor-calibration{animation:none;transform:none}
 }
+
