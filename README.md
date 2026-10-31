@@ -1,4 +1,4 @@
-# Kkhgold · Engineering Portfolio
+# Kim Kyung Hwa · Engineering Portfolio
 
 React + Vite 기반 포트폴리오입니다. 포토공정 노광장비 엔지니어로서 쌓은 16년의 설비 메인터넌스 경험과 현재 시스템 업무, 학업과 배움의 여정을 소개합니다.
 
@@ -34,4 +34,6 @@ npm run preview
 
 원자로 링 회전과 노광 단계 애니메이션은 접속 시 자동 재생됩니다. 기기의 동작 줄이기 설정과 관계없이 자동 재생하며, 노광 섹션의 일시정지 버튼과 단계 버튼으로 직접 제어할 수 있습니다.
 
-실명 대신 Kkhgold를 사용하며, 회사명·장비 모델·프로젝트·자격증·성과 수치는 임의로 추가하지 않았습니다. 데이터센터와 AI는 디자인 모티프이며 해당 분야의 경력을 의미하지 않습니다. Google Fonts를 사용할 수 없으면 시스템 글꼴로 표시됩니다.
+표시 이름은 사용자가 제공한 Kim Kyung Hwa이며 GitHub 계정은 Kkhgold입니다.  회사명·장비 모델·프로젝트·자격증·성과 수치는 임의로 추가하지 않았습니다. 데이터센터와 AI는 디자인 모티프이며 해당 분야의 경력을 의미하지 않습니다. Google Fonts를 사용할 수 없으면 시스템 글꼴로 표시됩니다.
+
+ASML TWINSCAN 듀얼 스테이지 교육용 개념 애니메이션을 추가했습니다. 실제 교환 경로·속도·구조를 재현하지 않으며 관련 경력을 의미하지 않습니다. 공식 설명: https://www.asml.com/en/technology/lithography-principles/mechanics-and-mechatronics

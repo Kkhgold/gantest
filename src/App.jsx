@@ -1,3 +1,4 @@
+import TwinScan from './components/TwinScan.jsx';
 import Exposure from './components/Exposure.jsx';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
@@ -19,6 +20,7 @@ export default function App() {
         <ThemeRail />
         <Facts />
         <Exposure />
+        <TwinScan />
         <About />
         <Experience />
         <Learning />
