@@ -10,27 +10,20 @@ const steps = [
 
 export default function Exposure() {
   const [stage, setStage] = useState(0);
-  const [playing, setPlaying] = useState(false);
-  const [reduced, setReduced] = useState(true);
+  const [playing, setPlaying] = useState(true);
   useEffect(() => {
-    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const sync = () => { setReduced(media.matches); setPlaying(!media.matches); };
-    sync(); media.addEventListener('change', sync);
-    return () => media.removeEventListener('change', sync);
-  }, []);
-  useEffect(() => {
-    if (!playing || reduced) return;
+    if (!playing) return;
     const timer = window.setInterval(() => setStage(s => (s + 1) % steps.length), 3600);
     return () => window.clearInterval(timer);
-  }, [playing, reduced]);
+  }, [playing]);
   return (
     <section className="section wrap exposure" id="exposure">
       <div className="section-heading">
         <div className="section-label"><span>OPTICAL ENGINEERING / HOW IT WORKS</span><h2>빛이 지나간 자리,<br />패턴이 시작됩니다.</h2></div>
         <p>노광장비 안에서 일어나는 일.<br />빛에서 감광막 패턴까지.</p>
       </div>
-      <div className={`exposure-console ${playing && !reduced ? 'is-playing' : ''}`} data-stage={stage}>
-        <div className="exposure-topline"><span><i className="status-dot" /> PHOTOLITHOGRAPHY / OPTICAL PATH</span><button type="button" disabled={reduced} onClick={() => setPlaying(p => !p)} aria-label={playing ? '노광 원리 자동 재생 일시정지' : '노광 원리 자동 재생'}>{reduced ? '동작 줄이기 적용' : playing ? 'Ⅱ 일시정지' : '▷ 자동 재생'}</button></div>
+      <div className={`exposure-console ${playing ? 'is-playing' : ''}`} data-stage={stage}>
+        <div className="exposure-topline"><span><i className="status-dot" /> PHOTOLITHOGRAPHY / OPTICAL PATH</span><button type="button" onClick={() => setPlaying(p => !p)} aria-label={playing ? '노광 원리 자동 재생 일시정지' : '노광 원리 자동 재생'}>{playing ? 'Ⅱ 일시정지' : '▶ 애니메이션 재생'}</button></div>
         <div className="exposure-layout">
           <svg className="exposure-diagram" viewBox="0 0 660 670" role="img" aria-labelledby="exposure-title exposure-desc">
             <title id="exposure-title">광원에서 감광막까지 이어지는 노광 광학계</title>
@@ -42,6 +35,7 @@ export default function Exposure() {
               <pattern id="exp-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#77d2ee" strokeOpacity=".06" /></pattern>
             </defs>
             <rect width="660" height="670" fill="url(#exp-grid)" />
+            <circle className="exp-light-packet" cx="330" cy="95" r="5" fill="#e4ffff" />
             <path d="M330 32V494" stroke="#53899e" strokeDasharray="3 9" opacity=".5" />
             <g className="exp-light"><rect x="245" y="32" width="170" height="54" rx="8" fill="url(#exp-metal)" stroke="#70a6b9" /><rect x="272" y="47" width="116" height="23" rx="11" fill="#b6faff" /><path d="M276 86L237 168H423L384 86Z" fill="url(#exp-beam)" /><path className="exp-photons" d="M294 87L267 165M330 87V165M366 87L393 165" /></g>
             <g className="exp-label"><text x="34" y="60">01 / 광원</text><text x="450" y="58">LIGHT SOURCE</text><text x="450" y="78" className="exp-sub">광원 · 조명 광학계</text></g>

@@ -32,3 +32,8 @@
   .reactor-coils,.reactor-calibration{animation:none;transform:none}
 }
 
+
+/* Automatic rotation requested for every device preference. */
+.reactor-coils{animation:coil-light 5s ease-in-out infinite,reactor-ring-turn 16s linear infinite}
+.reactor-calibration{animation:reactor-ring-turn 12s linear infinite reverse}
+.reactor-core{animation:precision-core 6s ease-in-out infinite}
